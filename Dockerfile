@@ -1,3 +1,9 @@
+FROM composer as builder
+# Set the working directory
+WORKDIR /app
+# Install PHPMailer dependencies
+RUN composer require phpmailer/phpmailer
+
 # Use the official PHP image
 FROM php:7.4-apache
 
@@ -17,12 +23,8 @@ WORKDIR /var/www/html
 
 # Copy the PHP files into the container
 COPY src/ /var/www/html/
-
-# Install Composer for PHPMailer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-# Install PHPMailer dependencies
-RUN composer require phpmailer/phpmailer
+# Copy vendor form builder
+COPY --from=builder /app/vendor /var/www/vendor
 
 # Expose the Apache port
 EXPOSE 80
