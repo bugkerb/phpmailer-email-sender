@@ -1,5 +1,5 @@
 # Ignore Composer's vendor directory
-/vendor/
+/vendor
 
 # Ignore PHPStorm files
 .idea/
