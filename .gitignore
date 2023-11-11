@@ -1,0 +1,17 @@
+# Ignore Composer's vendor directory
+/vendor/
+
+# Ignore PHPStorm files
+.idea/
+
+# Ignore Docker-related files
+docker-compose.override.yml
+docker-compose.yml
+.dockerignore
+
+# Ignore environment-specific files
+.env
+
+# Ignore logs and cache files
+/logs/
+/cache/
