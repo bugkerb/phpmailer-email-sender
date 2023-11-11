@@ -1,0 +1,4 @@
+# Ignore development-specific files
+.docker/
+docker-compose.override.yml
+docker-compose.yml
